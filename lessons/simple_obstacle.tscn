@@ -6,7 +6,6 @@
 size = Vector2(128, 115)
 
 [node name="SimpleObstacle" type="StaticBody2D"]
-z_index = -1
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
