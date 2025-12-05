@@ -12,6 +12,16 @@ const UP_LEFT = Vector2.UP + Vector2.LEFT
 const DOWN_RIGHT = Vector2.DOWN + Vector2.RIGHT
 const DOWN_LEFT = Vector2.DOWN + Vector2.LEFT
 
+
+
+
+
+
+
+
+
+
+
 var max_speed := 600.0
 
 func _physics_process(_delta: float) -> void:
