@@ -1,9 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw7oebjpdt5r8"]
+[gd_scene load_steps=14 format=3 uid="uid://bw7oebjpdt5r8"]
 
 [ext_resource type="Script" uid="uid://dvroxk1oq42wn" path="res://lessons/runner.gd" id="1_h1hi2"]
 [ext_resource type="PackedScene" uid="uid://bm8s1oaoxngwq" path="res://assets/runner/runner_visual_red.tscn" id="2_h1hi2"]
 [ext_resource type="Texture2D" uid="uid://dbcmxo51msi8m" path="res://assets/runner/shadow.png" id="2_ipi7s"]
 [ext_resource type="Shader" uid="uid://bwhexggpo0snf" path="res://assets/character_contour.gdshader" id="4_2nvb5"]
+[ext_resource type="Texture2D" uid="uid://bkq3gfbp5fwqx" path="res://assets/circle_64x64.png" id="5_x5rx3"]
+
+[sub_resource type="Curve" id="Curve_x5rx3"]
+_data = [Vector2(0.0010493174, 0.998853), 0.0, 0.0, 0, 0, Vector2(0.798531, 0.9942711), 0.0, 0.0, 0, 0, Vector2(1, 0.0020270348), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cl8lt"]
+curve = SubResource("Curve_x5rx3")
+
+[sub_resource type="Curve" id="Curve_cl8lt"]
+_data = [Vector2(0.038356155, 0.02424252), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_d46nv"]
+curve = SubResource("Curve_cl8lt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_agra7"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -10, 0)
+scale_min = 0.5
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_d46nv")
+alpha_curve = SubResource("CurveTexture_cl8lt")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7b3c"]
 radius = 23.0
@@ -22,10 +45,17 @@ motion_mode = 1
 script = ExtResource("1_h1hi2")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0.18039216)
+modulate = Color(0, 0, 0, 0.12941177)
 position = Vector2(-1, 45)
 scale = Vector2(0.6145833, 0.5312499)
 texture = ExtResource("2_ipi7s")
+
+[node name="Dust" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 43)
+emitting = false
+texture = ExtResource("5_x5rx3")
+process_material = SubResource("ParticleProcessMaterial_agra7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 27)
