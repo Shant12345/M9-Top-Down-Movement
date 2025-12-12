@@ -1,24 +1,14 @@
-## An animated character for the running game.
-##
-## You can change the playing animation with the [member animation] property, and
-## change the character's viewing angle with the [member angle] property.
 @tool
 class_name RunnerVisual extends Node2D
 
-## Use this enum to tell the runner which animation to play.
 enum Animations {
-	## A standing animation.
 	IDLE,
-	## A walking animation.
 	WALK,
-	## A faster, run animation.
 	RUN
 }
 
-## Determines where the runner character is looking, in radians.
 @export_range(-180.0, 180.0, 0.001, "radians_as_degrees") var angle := 0.0: set = set_angle
 
-## Controls the animation that's currently playing. Use one of the values from the [enum Animations] enum.
 @export var animation_name: Animations = Animations.IDLE: set = set_animation_name
 
 

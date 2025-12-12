@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c62bk8cggi6yq"]
+[gd_scene load_steps=10 format=3 uid="uid://c62bk8cggi6yq"]
 
 [ext_resource type="Texture2D" uid="uid://5vl7p0xb7nd8" path="res://assets/circuit_background.png" id="1_4o7yg"]
 [ext_resource type="Script" uid="uid://b3ch6il2xt8bb" path="res://lessons/game.gd" id="1_48faf"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bqyt66qognb6h" path="res://lessons/simple_obstacle.tscn" id="2_yasw7"]
 [ext_resource type="PackedScene" uid="uid://xl56q8amb611" path="res://assets/finish_line/finish_line.tscn" id="3_cpqg5"]
 [ext_resource type="PackedScene" uid="uid://c6m5ktrjrtgba" path="res://lessons/circuit.tscn" id="4_gkp25"]
+[ext_resource type="Theme" uid="uid://cdcyvsn1fp8wa" path="res://assets/countdown/count_down_theme.tres" id="7_viysf"]
+[ext_resource type="Script" uid="uid://57e8080cpukf" path="res://assets/countdown/count_down.gd" id="8_tpjcj"]
+[ext_resource type="PackedScene" uid="uid://dj6ye05dbiqpi" path="res://lessons/pause_screen.tscn" id="9_tpjcj"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -13,9 +16,11 @@ position = Vector2(1056, 416)
 script = ExtResource("1_48faf")
 
 [node name="Runner" parent="." instance=ExtResource("1_b2m5v")]
+unique_name_in_owner = true
 position = Vector2(1344, 7)
 
 [node name="FinishLine" parent="." instance=ExtResource("3_cpqg5")]
+unique_name_in_owner = true
 position = Vector2(-1346, 52)
 scale = Vector2(2.0044498, 1)
 
@@ -37,3 +42,26 @@ scale = Vector2(0.76, 0.6)
 
 [node name="Circuit" parent="." instance=ExtResource("4_gkp25")]
 z_index = -1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CountDown" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.5
+offset_top = -109.5
+offset_right = 195.5
+offset_bottom = 109.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_viysf")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_tpjcj")
+metadata/_custom_type_script = "uid://57e8080cpukf"
+
+[node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("9_tpjcj")]
