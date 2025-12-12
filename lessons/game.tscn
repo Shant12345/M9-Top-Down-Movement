@@ -17,14 +17,17 @@ script = ExtResource("1_48faf")
 
 [node name="Runner" parent="." instance=ExtResource("1_b2m5v")]
 unique_name_in_owner = true
+process_mode = 1
 position = Vector2(1344, 7)
 
 [node name="FinishLine" parent="." instance=ExtResource("3_cpqg5")]
 unique_name_in_owner = true
+process_mode = 1
 position = Vector2(-1346, 52)
 scale = Vector2(2.0044498, 1)
 
 [node name="Circuit BG" type="Sprite2D" parent="."]
+process_mode = 1
 z_index = -1
 texture = ExtResource("1_4o7yg")
 
@@ -41,6 +44,7 @@ position = Vector2(1344, 256)
 scale = Vector2(0.76, 0.6)
 
 [node name="Circuit" parent="." instance=ExtResource("4_gkp25")]
+process_mode = 1
 z_index = -1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -65,3 +69,6 @@ script = ExtResource("8_tpjcj")
 metadata/_custom_type_script = "uid://57e8080cpukf"
 
 [node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("9_tpjcj")]
+process_mode = 3
+menu_opened_amount = 0.933
+animation_duration = 2.3
