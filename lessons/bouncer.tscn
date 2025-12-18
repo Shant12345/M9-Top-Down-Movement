@@ -84,3 +84,28 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(1, -27)
 shape = SubResource("CircleShape2D_o17vw")
+
+[node name="Raycasts" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -27)
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
+rotation = 0.8630209
+target_position = Vector2(83.007256, 36.807564)
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
+rotation = 2.2961059
+scale = Vector2(0.99999994, 0.99999994)
+target_position = Vector2(82.09436, -34.022316)
+
+[node name="RayCast2D3" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(71, 33)
+
+[node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(-69, 33)
+
+[node name="RayCast2D5" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(96, -18)
+
+[node name="RayCast2D6" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(-87, -23)
